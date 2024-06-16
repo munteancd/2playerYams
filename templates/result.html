@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yams Game Scoreboard - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Results</h1>
+    <div class="table-and-info-container">
+        <div class="table-container">
+            <h2>Player 1</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Row Name</th>
+                        <th>Jos</th>
+                        <th>Liber</th>
+                        <th>Sus</th>
+                        <th>Servit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in range(21) %}
+                        <tr>
+                            <td>{{ row_names[row] }}</td>
+                            {% for col in range(4) %}
+                                <td>{{ entries_1[row][col] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>TO</td>
+                        <td colspan="4">{{ to_value_1 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container">
+            <h2>Player 2</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Row Name</th>
+                        <th>Jos</th>
+                        <th>Liber</th>
+                        <th>Sus</th>
+                        <th>Servit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in range(21) %}
+                        <tr>
+                            <td>{{ row_names[row] }}</td>
+                            {% for col in range(4) %}
+                                <td>{{ entries_2[row][col] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>TO</td>
+                        <td colspan="4">{{ to_value_2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
